@@ -1,42 +1,54 @@
 import React, { Component } from 'react';
 import YTSearch from 'youtube-api-search';
+import _ from 'lodash';
 
-import YT_API_KEY from './../config'
+import { YT_API_KEY } from './../config';
 
 import SearchBar from './searchBar';
 import VideoList from './videoList';
+import VideoDetail from './videoDetail';
 
 class App extends Component {
 
   constructor(props) {
     super(props);
     this.state = this.getInitialState();
-    this.fetchVideos = this.fetchVideos.bind(this);
+    this.videoSearch = this.videoSearch.bind(this);
+    this.onVideoSelect = this.onVideoSelect.bind(this);
 
-    //this.fetchVideos();
+    this.videoSearch();
   };
 
   getInitialState() {
     return {
       videos: [],
-      defaultTerm: 'welcome'
+      defaultTerm: 'welcome',
+      selectedVideo: null,
     };
   };
 
-  fetchVideos() {
+  videoSearch(term=this.state.defaultTerm) {
     YTSearch({
       key: YT_API_KEY,
-      term: this.state.defaultTerm
+      term: term
     }, (videos) => {
-      this.setState({'videos' : videos});
+      this.setState({'videos': videos,
+                    'selectedVideo' : videos[0]});
     });
   };
 
+  onVideoSelect(video) {
+    this.setState({'selectedVideo' : video});
+  };
+
   render() {
+    const videoSearch = _.debounce((term) => { this.videoSearch(term) }, 300);
+
     return(
       <div>
-        <SearchBar />
-        <VideoList videos={this.state.videos}/>
+        <SearchBar onSearchTermChange={videoSearch} />
+        <VideoDetail video={this.state.selectedVideo} />
+        <VideoList videos={this.state.videos} onVideoSelect={this.onVideoSelect} />
       </div>
     );
   };

@@ -1,13 +1,5 @@
 import React, { Component } from 'react';
 
-// functional component
-/*
-const SearchBar = () => {
-  return <input />;
-};
-*/
-
-// class-based component
 class SearchBar extends Component {
 
   constructor(props) {
@@ -24,7 +16,7 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <div>
+      <div className="search-bar">
         <input
           value={this.state.term}
           onChange={this.onInputChange} />
@@ -36,6 +28,7 @@ class SearchBar extends Component {
     event.preventDefault();
     let term = event.target.value;
     this.setState({'term': term});
+    this.props.onSearchTermChange(term);
   };
 
 }
