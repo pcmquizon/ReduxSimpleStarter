@@ -7,23 +7,23 @@ import SearchBar from './searchBar';
 import VideoList from './videoList';
 
 class App extends Component {
-  
+
   constructor(props) {
     super(props);
     this.state = this.getInitialState();
     this.fetchVideos = this.fetchVideos.bind(this);
-    
+
     //this.fetchVideos();
   };
-  
+
   getInitialState() {
     return {
       videos: [],
       defaultTerm: 'welcome'
     };
   };
-  
-  fetchVideos() {  
+
+  fetchVideos() {
     YTSearch({
       key: YT_API_KEY,
       term: this.state.defaultTerm
@@ -31,7 +31,7 @@ class App extends Component {
       this.setState({'videos' : videos});
     });
   };
-  
+
   render() {
     return(
       <div>
