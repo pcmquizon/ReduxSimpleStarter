@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import YoutubeApp from '../youtube/youtube';
-import TinderApp from '../tinder/tinder';
+import LibraryApp from '../library/library';
 import App from './components/app';
 
 const Dashboard = (props) => {
@@ -12,8 +12,8 @@ const Dashboard = (props) => {
       content: <YoutubeApp />
     },
     {
-      name: 'TinderReactRedux',
-      content: <TinderApp />
+      name: 'Library',
+      content: <LibraryApp />
     },
 
   ];
