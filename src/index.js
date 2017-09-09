@@ -5,5 +5,5 @@ import Dashboard from './dashboard/dashboard';
 
 ReactDOM.render(
   <Dashboard />,
-  document.querySelector('.container')
+  document.querySelector('.app')
 );

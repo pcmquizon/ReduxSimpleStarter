@@ -9,7 +9,7 @@ const ProjectList = (props) => {
   });
 
   return(
-    <ul className="col-md-4 list-group">
+    <ul className="col-sm-3 list-group">
       {projectItems}
     </ul>
   );
