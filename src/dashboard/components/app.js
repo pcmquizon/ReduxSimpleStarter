@@ -23,7 +23,7 @@ class App extends Component {
 
   render() {
     return(
-      <div>
+      <div className="col-lg-12">
         <ProjectList projects={this.props.projects} onProjectSelect={this.onProjectSelect} />
         <ProjectDetail detail={this.state.selectedProject} />
       </div>

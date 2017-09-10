@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 
 import YoutubeApp from '../youtube/youtube';
 import LibraryApp from '../library/library';
+import WeatherForecastApp from '../weatherForecast/weatherForecast';
 import App from './components/app';
 
 const Dashboard = (props) => {
@@ -14,6 +15,10 @@ const Dashboard = (props) => {
     {
       name: 'Library',
       content: <LibraryApp />
+    },
+    {
+      name: 'Weather Forecast',
+      content: <WeatherForecastApp />
     },
 
   ];
