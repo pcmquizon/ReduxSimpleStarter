@@ -13,13 +13,11 @@ class VideoListItem extends Component {
 
   render() {
     return(
-      <li className='list-group-item' onClick={this.onVideoSelect}>
-        <div className='video-list media'>
-          <div className='media-left'>
-            <img className='media-object' src={this.props.video.snippet.thumbnails.default.url} alt='' />
-          </div>
+      <li className='list-group-item media' onClick={this.onVideoSelect}>
+        <div className='video-list'>
+          <img className='d-flex align-self-start mr-3 media-object' src={this.props.video.snippet.thumbnails.default.url} alt='' />
           <div className='media-body'>
-            <div className='media-heading'>
+            <div className='mt-0'>
               {this.props.video.snippet.title}
             </div>
             <div>

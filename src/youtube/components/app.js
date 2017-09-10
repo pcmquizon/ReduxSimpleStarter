@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import YTSearch from 'youtube-api-search';
 import _ from 'lodash';
 
-import { YT_API_KEY } from './../config';
+import { GOOGLE_API_KEY } from './../config';
 
 import SearchBar from './searchBar';
 import VideoList from './videoList';
@@ -29,7 +29,7 @@ class App extends Component {
 
   videoSearch(term=this.state.defaultTerm) {
     YTSearch({
-      key: YT_API_KEY,
+      key: GOOGLE_API_KEY,
       term: term
     }, (videos) => {
       this.setState({'videos': videos,
