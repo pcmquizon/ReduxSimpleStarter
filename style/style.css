@@ -29,3 +29,12 @@
 .project-detail {
   border: 1px solid #ddd;
 }
+
+.input-group {
+  margin: 20px 0;
+}
+
+.google-map {
+  height: 200px;
+  width: 250px;
+}
