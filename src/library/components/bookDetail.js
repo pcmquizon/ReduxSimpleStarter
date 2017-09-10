@@ -10,12 +10,12 @@ class BookDetail extends Component {
   render() {
     if(!this.props.book) {
       return(
-        <div>Select a book to start</div>
+        <div className='d-inline-block align-top'>Select a book to start</div>
       );
     }
 
     return(
-      <div>
+      <div className='d-inline-block align-top'>
         <h6>{this.props.book.title}</h6>
         <span>{this.props.book.pages} pages</span>
       </div>
