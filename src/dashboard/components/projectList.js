@@ -9,9 +9,11 @@ const ProjectList = (props) => {
   });
 
   return(
-    <ul className="col-sm-3 list-group">
-      {projectItems}
-    </ul>
+    <div className="col-md-3 d-inline-block align-top">
+      <ul className="list-group">
+        {projectItems}
+      </ul>
+    </div>
   );
 };
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import StarterApp from '../starter/starter';
 import YoutubeApp from '../youtube/youtube';
 import LibraryApp from '../library/library';
 import WeatherForecastApp from '../weatherForecast/weatherForecast';
@@ -8,6 +9,10 @@ import App from './components/app';
 
 const Dashboard = (props) => {
   const projects = [
+    {
+      name: 'ReduxSimpleStarter Boilerplate',
+      content: <StarterApp />
+    },
     {
       name: 'Youtube API Search',
       content: <YoutubeApp />
