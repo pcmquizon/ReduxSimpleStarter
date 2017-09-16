@@ -1,9 +1,22 @@
 import React, { Component } from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-export default class App extends Component {
+import PostsIndex from './postsIndex';
+import PostsShow from './postsShow';
+import PostsNew from './postsNew';
+
+class App extends Component {
   render() {
     return (
-      <div>React simple starter</div>
+      <BrowserRouter>
+        <Switch>
+          <Route path='/posts/new' component={PostsNew} />
+          <Route path='/posts/:id' component={PostsShow} />
+          <Route path='/' component={PostsIndex} />
+        </Switch>
+      </BrowserRouter>
     );
   }
-}
+};
+
+export default App;
