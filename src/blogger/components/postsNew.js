@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
 
+import { APP_ROOT_URL } from '../config';
 import { createPost } from '../actions/index';
 
 class PostsNew extends Component {
@@ -36,7 +37,7 @@ class PostsNew extends Component {
 
   onFormSubmit(values) {
     this.props.createPost(values, () => {
-      this.props.history.push('/');
+      this.props.history.push(`${APP_ROOT_URL}/`);
     });
   }
 
@@ -70,7 +71,7 @@ class PostsNew extends Component {
             <button type="submit" className="btn btn-primary">Submit</button>
           </div>
           <div className="btn-group">
-            <Link className="btn btn-danger btn-outline" to="/">
+            <Link className="btn btn-danger btn-outline" to={`${APP_ROOT_URL}/`}>
               Cancel
             </Link>
           </div>

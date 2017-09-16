@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import _ from 'lodash';
 import { Link } from 'react-router-dom';
 
+import { APP_ROOT_URL } from '../config';
 import { fetchPosts } from '../actions/index';
 
 class PostsIndex extends Component {
@@ -19,7 +20,7 @@ class PostsIndex extends Component {
   renderPosts() {
     return _.map(this.props.posts, (post) => {
       return(
-        <Link to={`/posts/${post.id}`} key={post.id}>
+        <Link to={`${APP_ROOT_URL}/posts/${post.id}`} key={post.id}>
           <li className="list-group-item">{post.title}</li>
         </Link>
       );
@@ -29,8 +30,8 @@ class PostsIndex extends Component {
   render() {
     return(
       <div>
-        <div className="float-right">
-          <Link className="btn btn-primary" to="/posts/new">
+        <div className="text-sm-right">
+          <Link className="btn btn-primary" to={`${APP_ROOT_URL}/posts/new`}>
             Add a Post
           </Link>
         </div>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import { APP_ROOT_URL } from '../config';
 import { fetchPost, deletePost } from '../actions/index';
 
 class PostsShow extends Component {
@@ -21,7 +22,7 @@ class PostsShow extends Component {
   onDeleteClick() {
     const { id } = this.props.match.params;
     this.props.deletePost(id, () => {
-      this.props.history.push('/');
+      this.props.history.push(`${APP_ROOT_URL}/`);
     });
   };
 
@@ -38,7 +39,7 @@ class PostsShow extends Component {
 
     return(
       <div>
-        <Link className="btn btn-lnk" to="/">
+        <Link className="btn btn-lnk" to={`${APP_ROOT_URL}/`}>
           Back to index
         </Link>
         <button className="btn btn-danger float-right" onClick={this.onDeleteClick}>

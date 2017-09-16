@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter, Switch } from 'react-router-dom';
 
 import ProjectList from './projectList';
 import ProjectDetail from './projectDetail';
@@ -7,26 +8,18 @@ class App extends Component {
 
   constructor(props) {
     super(props);
-    this.state = this.getInitialState();
-    this.onProjectSelect = this.onProjectSelect.bind(this);
-  };
-
-  getInitialState() {
-    return {
-      selectedProject: null,
-    };
-  };
-
-  onProjectSelect(project) {
-    this.setState({'selectedProject' : project});
   };
 
   render() {
     return(
-      <div className="col-lg-12">
-        <ProjectList projects={this.props.projects} onProjectSelect={this.onProjectSelect} />
-        <ProjectDetail detail={this.state.selectedProject} />
-      </div>
+      <BrowserRouter>
+        <div className="col-lg-12">
+          <ProjectList projects={this.props.projects}/>
+          <Switch>
+            <ProjectDetail projects={this.props.projects} />
+          </Switch>
+        </div>
+      </BrowserRouter>
     );
   };
 };

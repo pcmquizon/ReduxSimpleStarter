@@ -1,21 +1,17 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class ProjectListItem extends Component {
 
   constructor(props) {
     super(props);
-    this.onProjectSelect = this.onProjectSelect.bind(this);
-  };
-
-  onProjectSelect() {
-    this.props.onProjectSelect(this.props.project);
   };
 
   render() {
     return(
-      <li className='list-group-item' onClick={this.onProjectSelect}>
+      <Link to={`${this.props.project.url}`} className='list-group-item'>
         {this.props.project.name}
-      </li>
+      </Link>
     );
   };
 };
