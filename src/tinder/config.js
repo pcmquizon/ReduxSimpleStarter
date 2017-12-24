@@ -1,1 +1,1 @@
-export const APP_ROOT_URL = '/starter';
+export const APP_ROOT_URL = '/tinder';

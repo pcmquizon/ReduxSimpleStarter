@@ -16,7 +16,4 @@ const Starter = (props) => {
   );
 };
 
-import { APP_ROOT_URL as appUrl } from './config';
-export const baseUrl = appUrl;
-
 export default Starter;
